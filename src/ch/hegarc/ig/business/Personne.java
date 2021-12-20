@@ -1,5 +1,6 @@
 package ch.hegarc.ig.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Personne {
@@ -7,14 +8,20 @@ public abstract class Personne {
     private String prenom;
     private String matricule;
     private Formation formation;
-    private List<CoursSuivi> coursSuivis;
+    private List<Cours> coursSuivis;
 
-    public Personne(String nom, String prenom, String matricule, Formation formation, List<CoursSuivi> coursSuivis) {
+    public Personne(String nom, String prenom, String matricule, Formation formation, List<Cours> coursSuivis) {
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
         this.formation = formation;
         this.coursSuivis = coursSuivis;
+    }
+
+    public Personne(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.coursSuivis = new ArrayList<>();
     }
 
     public String getNom() {
@@ -49,11 +56,19 @@ public abstract class Personne {
         this.formation = formation;
     }
 
-    public List<CoursSuivi> getCoursSuivis() {
+    public List<Cours> getCoursSuivis() {
         return coursSuivis;
     }
 
-    public void setCoursSuivis(CoursSuivi coursSuivis) {
+    public void setCoursSuivis(Cours coursSuivis) {
         this.coursSuivis.add(coursSuivis);
+    }
+
+    @Override
+    public String toString() {
+        return "Personne{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                '}';
     }
 }

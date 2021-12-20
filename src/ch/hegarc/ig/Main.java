@@ -1,16 +1,30 @@
 package ch.hegarc.ig;
 
-import ch.hegarc.ig.business.CoursDonne;
-import ch.hegarc.ig.business.CoursSuivi;
-import ch.hegarc.ig.business.Etudiant;
+import ch.hegarc.ig.business.Apprenant;
+import ch.hegarc.ig.business.Cours;
+import ch.hegarc.ig.business.Personne;
+import ch.hegarc.ig.edulearn.EduLearn;
+import ch.hegarc.ig.edulearn.IEduLearn;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        CoursDonne anglais = new CoursDonne(1,"ANG1","Anglais","Voici le cours d'anglais 1",null);
-        CoursSuivi anglais_public = new CoursSuivi(anglais);
+        IEduLearn eduLearn = new EduLearn();
 
-        Etudiant e1 = new Etudiant("Allemano","Enzo","NE7",null,null);
-        e1.setCoursSuivis(anglais_public);
+        /*Personne connectedUser = eduLearn.authentification("Matis", "Dup");
+        System.out.println(connectedUser);*/
+
+        Apprenant apprenant1 = new Apprenant("Brenda", "Taboga");
+
+        Cours c1 = new Cours();
+        c1.setNom("Tute");
+        apprenant1.setCoursSuivis(c1);
+        System.out.println(apprenant1.getCoursSuivis().toString());
+
+        eduLearn.quitterCours(apprenant1, c1);
+
+        System.out.println(apprenant1.getCoursSuivis().toString());
     }
 }
