@@ -13,4 +13,8 @@ public interface IEduLearn {
     boolean quitterCours(Apprenant apprenant, Cours cours);
 
     List<Apprenant> consulterListeClasse(Enseignant enseignant, Cours cours);
+    
+    boolean supprimerDeListe(String matricule);
+
+    boolean ajouterDocument(Cours cours, Document docu, Chapitre chap);
 }
