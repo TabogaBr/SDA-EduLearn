@@ -119,4 +119,26 @@ public class EduLearn implements IEduLearn {
         }
         return null;
     }
+
+
+    public boolean validerInscription (Apprenant apprenant, Cours cours) {
+        return cours.getListeApprenants().stream().anyMatch(apprenant1 -> apprenant1.getMatricule() == apprenant.getMatricule());
+        // Check dans la liste d'apprenant pour le cours donner en paramètre si l'apprenant est dans la liste
+        // Apprenant1 est l'element qui sera tester/controler
+        // Stream traite une collection d'objet
+    }
+
+    /**
+     * Fonction qui sert a recuperer les fichiers d'un cours
+     * @param cours
+     * @return Liste des fichiers ou null si vide
+     */
+    public List<String> downloadFichier (Cours cours) {
+        List<String> fichierDispo = cours.getListeFichiersAccessibles();
+        if (fichierDispo.isEmpty()) {
+            return null;
+        } else {
+            return fichierDispo;
+        }
+    }
 }

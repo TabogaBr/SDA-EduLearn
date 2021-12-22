@@ -49,11 +49,11 @@ public class Cours {
         this.nom = nom;
     }
 
-    public Matiere getMatiere() {
+    public String getMatiere() {
         return matiere;
     }
 
-    public void setMatiere(Matiere matiere) {
+    public void setMatiere(String matiere) {
         this.matiere = matiere;
     }
 
