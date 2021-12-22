@@ -43,12 +43,10 @@ public class EduLearn implements IEduLearn {
 
     @Override
     public boolean creerCours(String nom, Matiere matière, String commentaire, Enseignant proprietaire){
-        Cours cours = new Cours();
+        Cours cours = new Cours(nom,matière,commentaire,proprietaire);
         int numero = cours.getNumeroUnique();
         cours.setId(numero);
-        cours.setMatiere(matière);
-        cours.setCommentaire(commentaire);
-        cours.setProprietaire(proprietaire);
+
 
         List<Apprenant> apprenants = new ArrayList<>();
         cours.setListeApprenants(apprenants);

@@ -13,8 +13,8 @@ public class Cours {
     private List<Apprenant> listeApprenants;
     private List<String> listeFichiersAccessibles;
 
-    public Cours(int id, String nom, Matiere matiere, String commentaire, Enseignant proprietaire) {
-        this.id = id;
+    public Cours(String nom, Matiere matiere, String commentaire, Enseignant proprietaire) {
+        this.id = getNumeroUnique();
         this.nom = nom;
         this.matiere = matiere;
         this.commentaire = commentaire;

@@ -20,7 +20,7 @@ public class Main {
         Formation formation1 = new Formation(4,"Harvard", "monCertif");
         Enseignant enseignant1 = new Enseignant("Neels", "Niklas", "NN",formation1);
         Matiere matiere1 = new Matiere("Programmation", 3);
-        Cours cours1 = new Cours(1,"Architecture de données",matiere1,"prérequis : avoir des notions de base de programmation",enseignant1);
+        Cours cours1 = new Cours("Architecture de données",matiere1,"prérequis : avoir des notions de base de programmation",enseignant1);
 
         //ajout d'un cours à l'apprenant
         apprenant1.setCoursSuivis(cours1);
