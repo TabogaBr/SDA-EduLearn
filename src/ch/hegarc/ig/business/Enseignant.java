@@ -1,13 +1,14 @@
 package ch.hegarc.ig.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Enseignant extends Personne {
     private List<Cours> coursDonnes;
 
-    public Enseignant(String nom, String prenom, String matricule, Formation formation, List<Cours> coursSuivis,
-                      List<Cours> coursDonnes) {
-        super(nom, prenom, matricule, formation, coursSuivis);
+    public Enseignant(String nom, String prenom, String matricule, Formation formation){
+        super(nom, prenom, matricule, formation);
+        List<Cours> coursDonnes = new ArrayList<>();
         this.coursDonnes = coursDonnes;
     }
 
@@ -21,5 +22,12 @@ public class Enseignant extends Personne {
 
     public void setCoursDonnes(List<Cours> coursDonnes) {
         this.coursDonnes = coursDonnes;
+    }
+
+    @Override
+    public String toString() {
+        return "Enseignant{" +
+                "coursDonnes=" + coursDonnes +
+                '}';
     }
 }
