@@ -1,5 +1,7 @@
 package ch.hegarc.ig.business;
 
+import ch.hegarc.ig.edulearn.EduLearn;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +12,13 @@ public abstract class Personne {
     private Formation formation;
     private List<Cours> coursSuivis;
 
-    public Personne(String nom, String prenom, String matricule, Formation formation, List<Cours> coursSuivis) {
+    public Personne(String nom, String prenom, String matricule, Formation formation) {
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
         this.formation = formation;
+        this.coursSuivis = coursSuivis;
+        List<Cours> coursSuivis = new ArrayList<>();
         this.coursSuivis = coursSuivis;
     }
 
@@ -62,6 +66,7 @@ public abstract class Personne {
 
     public void setCoursSuivis(Cours coursSuivis) {
         this.coursSuivis.add(coursSuivis);
+        //coursSuivis.setListeApprenants();
     }
 
     @Override

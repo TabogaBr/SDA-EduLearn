@@ -4,13 +4,34 @@ import java.util.List;
 import java.util.Objects;
 
 public class Cours {
+    private static int numeroUnique = 0;
     private int id;
     private String nom;
-    private String matiere;
+    private Matiere matiere;
     private String commentaire;
     private Enseignant proprietaire;
     private List<Apprenant> listeApprenants;
     private List<String> listeFichiersAccessibles;
+
+    public Cours(String nom, Matiere matiere, String commentaire, Enseignant proprietaire) {
+        this.id = getNumeroUnique();
+        this.nom = nom;
+        this.matiere = matiere;
+        this.commentaire = commentaire;
+        this.proprietaire = proprietaire;
+    }
+
+    public Cours() {
+    }
+
+    public static int getNumeroUnique() {
+        numeroUnique++;
+        return numeroUnique - 1;
+    }
+
+    public static void setNumeroUnique(int numeroUnique) {
+        Cours.numeroUnique = numeroUnique;
+    }
 
     public int getId() {
         return id;
@@ -28,11 +49,11 @@ public class Cours {
         this.nom = nom;
     }
 
-    public String getMatiere() {
+    public Matiere getMatiere() {
         return matiere;
     }
 
-    public void setMatiere(String matiere) {
+    public void setMatiere(Matiere matiere) {
         this.matiere = matiere;
     }
 

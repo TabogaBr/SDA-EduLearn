@@ -9,6 +9,6 @@ public class Apprenant extends Personne{
     }
 
     public Apprenant(String nom, String prenom, String matricule, Formation formation, List<Cours> coursSuivis) {
-        super(nom, prenom, matricule, formation, coursSuivis);
+        super(nom, prenom, matricule, formation);
     }
 }

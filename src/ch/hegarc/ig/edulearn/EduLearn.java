@@ -7,6 +7,7 @@ import java.util.*;
 public class EduLearn implements IEduLearn {
 
     private Map<String, Personne> users;
+    private Map<String, Cours> cours;
 
     public EduLearn() {
         this.createUsers();
@@ -36,6 +37,25 @@ public class EduLearn implements IEduLearn {
      * @param cours
      * @return true si l'apprenant a pu quitter le cours, false s'il y a eu un problème.
      */
+
+
+    // essai de faire "un constructeur" avec un identifiant unique
+
+    @Override
+    public boolean creerCours(String nom, Matiere matière, String commentaire, Enseignant proprietaire){
+        Cours cours = new Cours(nom,matière,commentaire,proprietaire);
+        int numero = cours.getNumeroUnique();
+        cours.setId(numero);
+
+
+        List<Apprenant> apprenants = new ArrayList<>();
+        cours.setListeApprenants(apprenants);
+
+        List<String> fichiers = new ArrayList<>();
+        cours.setListeFichiersAccessibles(fichiers);
+        return true;
+    }
+
     @Override
     public boolean quitterCours(Apprenant apprenant, Cours cours) {
         // redéfinition de la méthode equals() de la classe Cours
