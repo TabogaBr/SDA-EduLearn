@@ -14,7 +14,7 @@ public class Edulearn implements IEdulearn{
 
     @Override
     public boolean supprimerDeListe(String matricule) {
-        for (int i = 0; i <= apprenants.size(); i++){
+        for (int i = 0; i < apprenants.size(); i++){
             if (apprenants.get(i).getMatricule().equals(matricule)){
                 apprenants.remove(i);
                 return true;
