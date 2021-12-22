@@ -12,7 +12,7 @@ public class EduLearn implements IEduLearn {
     List<Document> documents = new ArrayList<>();
 
     @Override
-    public boolean supprimerDeListe(String matricule) {
+    public boolean supprimerEtudiant(String matricule) {
         for (int i = 0; i < apprenants.size(); i++){
             if (apprenants.get(i).getMatricule().equals(matricule)){
                 apprenants.remove(i);
