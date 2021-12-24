@@ -11,6 +11,10 @@ public class EduLearn implements IEduLearn {
     List<Apprenant> apprenants = new ArrayList<>();
     List<Document> documents = new ArrayList<>();
 
+    public EduLearn() {
+        this.createUsers();
+    }
+
     @Override
     public boolean supprimerEtudiant(String matricule) {
         for (int i = 0; i < apprenants.size(); i++){
@@ -43,8 +47,22 @@ public class EduLearn implements IEduLearn {
         }
     }
 
-    public EduLearn() {
-        this.createUsers();
+    @Override
+    public boolean supprimerDocument(Cours cours, Document docu, Chapitre chap) {
+        if (cours != null){
+            if (chap != null){
+                documents.remove(docu);
+                return true;
+            }else {
+                System.out.println("Le chapitre souhaité n'existe pas...");
+
+                return false;
+            }
+        }else {
+            System.out.println("Le cours souhaité n'existe pas");
+
+            return false;
+        }
     }
 
     private void createUsers() {

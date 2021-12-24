@@ -17,4 +17,6 @@ public interface IEduLearn {
     boolean supprimerEtudiant(String matricule);
 
     boolean ajouterDocument(Cours cours, Document docu, Chapitre chap);
+
+    boolean supprimerDocument(Cours cours, Document docu, Chapitre chap);
 }
