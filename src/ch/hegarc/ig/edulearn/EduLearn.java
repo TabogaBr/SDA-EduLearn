@@ -62,17 +62,6 @@ public class EduLearn implements IEduLearn {
         return null;
     }
 
-    /**
-     * Permet à un apprenant de quitter le cours souhaité (ne permet pas à un enseignant de supprimer un élève).
-     * Cela supprimera le cours de la liste des cours de l'apprenant.
-     * L'apprenant sera supprimé de la liste des apprenants du cours.
-     *
-     * @param apprenant
-     * @param cours
-     * @return true si l'apprenant a pu quitter le cours, false s'il y a eu un problème.
-     */
-
-
     // essai de faire "un constructeur" avec un identifiant unique
 
     @Override
@@ -90,6 +79,15 @@ public class EduLearn implements IEduLearn {
         return true;
     }
 
+    /**
+     * Permet à un apprenant de quitter le cours souhaité (ne permet pas à un enseignant de supprimer un élève).
+     * Cela supprimera le cours de la liste des cours de l'apprenant.
+     * L'apprenant sera supprimé de la liste des apprenants du cours.
+     *
+     * @param apprenant
+     * @param cours
+     * @return true si l'apprenant a pu quitter le cours, false s'il y a eu un problème.
+     */
     @Override
     public boolean quitterCours(Apprenant apprenant, Cours cours) {
         // redéfinition de la méthode equals() de la classe Cours
@@ -99,6 +97,7 @@ public class EduLearn implements IEduLearn {
             return false;
         }
         apprenant.getCoursSuivis().remove(index);
+        cours.getProprietaire().getCoursDonnes().remove(cours);
         return true;
     }
 
