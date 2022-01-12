@@ -22,10 +22,14 @@ public abstract class Personne {
         this.coursSuivis = coursSuivis;
     }
 
-    public Personne(String nom, String prenom) {
+    public Personne(String nom, String prenom, String matricule) {
         this.nom = nom;
         this.prenom = prenom;
+        this.matricule = matricule;
         this.coursSuivis = new ArrayList<>();
+    }
+
+    public Personne() {
     }
 
     public String getNom() {

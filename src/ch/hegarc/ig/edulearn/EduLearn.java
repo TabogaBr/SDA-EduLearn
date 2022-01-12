@@ -13,8 +13,13 @@ public class EduLearn implements IEduLearn {
         this.createUsers();
     }
 
+    @Override
+    public Map<String, Personne> getUsers() {
+        return users;
+    }
+
     private void createUsers() {
-        Personne pers1 = new Enseignant("Matis", "Dup");
+        Personne pers1 = new Enseignant("Matis", "Dup", "53636376336363636");
         users = new HashMap<>();
         users.put(pers1.getNom(), pers1);
     }
@@ -27,17 +32,6 @@ public class EduLearn implements IEduLearn {
         }
         return null;
     }
-
-    /**
-     * Permet à un apprenant de quitter le cours souhaité (ne permet pas à un enseignant de supprimer un élève).
-     * Cela supprimera le cours de la liste des cours de l'apprenant.
-     * L'apprenant sera supprimé de la liste des apprenants du cours.
-     *
-     * @param apprenant
-     * @param cours
-     * @return true si l'apprenant a pu quitter le cours, false s'il y a eu un problème.
-     */
-
 
     // essai de faire "un constructeur" avec un identifiant unique
 
@@ -55,6 +49,16 @@ public class EduLearn implements IEduLearn {
         cours.setListeFichiersAccessibles(fichiers);
         return true;
     }
+
+    /**
+     * Permet à un apprenant de quitter le cours souhaité (ne permet pas à un enseignant de supprimer un élève).
+     * Cela supprimera le cours de la liste des cours de l'apprenant.
+     * L'apprenant sera supprimé de la liste des apprenants du cours.
+     *
+     * @param apprenant
+     * @param cours
+     * @return true si l'apprenant a pu quitter le cours, false s'il y a eu un problème.
+     */
 
     @Override
     public boolean quitterCours(Apprenant apprenant, Cours cours) {

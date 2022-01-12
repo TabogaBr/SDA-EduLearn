@@ -12,8 +12,8 @@ public class Enseignant extends Personne {
         this.coursDonnes = coursDonnes;
     }
 
-    public Enseignant(String nom, String prenom) {
-        super(nom, prenom);
+    public Enseignant(String nom, String prenom, String matricule) {
+        super(nom, prenom, matricule);
     }
 
     public List<Cours> getCoursDonnes() {

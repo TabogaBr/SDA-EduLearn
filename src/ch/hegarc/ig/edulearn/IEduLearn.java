@@ -3,6 +3,7 @@ package ch.hegarc.ig.edulearn;
 import ch.hegarc.ig.business.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IEduLearn {
 
@@ -13,4 +14,6 @@ public interface IEduLearn {
     boolean quitterCours(Apprenant apprenant, Cours cours);
 
     List<Apprenant> consulterListeClasse(Enseignant enseignant, Cours cours);
+
+    Map<String, Personne> getUsers();
 }
