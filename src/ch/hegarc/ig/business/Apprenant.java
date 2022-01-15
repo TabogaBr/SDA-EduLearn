@@ -3,7 +3,6 @@ package ch.hegarc.ig.business;
 import java.util.List;
 
 public class Apprenant extends Personne{
-
     public Apprenant() {
     }
 

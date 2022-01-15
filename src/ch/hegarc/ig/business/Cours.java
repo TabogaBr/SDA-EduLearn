@@ -85,6 +85,22 @@ public class Cours {
         return listeFichiersAccessibles;
     }
 
+    public int getIndexChapitre(Chapitre chap){
+        for (int i = 0; i < this.chapitres.size(); i++) {
+            if (this.chapitres.get(i).equals(chap))
+                return i;
+        }
+        return -1;
+    }
+
+    public List<Chapitre> getChapitres() {
+        return chapitres;
+    }
+
+    public void setChapitres(Chapitre chapitre) {
+        this.chapitres.add(chapitre);
+    }
+
     public void setListeFichiersAccessibles(List<String> listeFichiersAccessibles) {
         this.listeFichiersAccessibles = listeFichiersAccessibles;
     }
@@ -104,14 +120,6 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", matiere='" + matiere + '\'' +
-                ", commentaire='" + commentaire + '\'' +
-                ", proprietaire=" + proprietaire +
-                ", listeApprenants=" + listeApprenants +
-                ", listeFichiersAccessibles=" + listeFichiersAccessibles +
-                '}';
+        return " ";
     }
 }

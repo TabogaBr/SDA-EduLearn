@@ -1,9 +1,8 @@
 package ch.hegarc.ig.business;
 
-import ch.hegarc.ig.edulearn.EduLearn;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Personne {
     private String nom;
@@ -79,5 +78,18 @@ public abstract class Personne {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personne personne = (Personne) o;
+        return Objects.equals(nom, personne.nom) && Objects.equals(prenom, personne.prenom) && Objects.equals(matricule, personne.matricule);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, prenom, matricule);
     }
 }

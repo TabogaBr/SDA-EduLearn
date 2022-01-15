@@ -1,29 +1,43 @@
 package ch.hegarc.ig.edulearn;
 
 import ch.hegarc.ig.business.*;
+import ch.hegarc.ig.utils.CompareNomPrenom;
 
 import java.util.*;
 
 public class EduLearn implements IEduLearn {
 
     private Map<String, Personne> users;
-    private Map<String, Cours> cours;
+    private Map<Integer, Cours> cours;
 
     public EduLearn() {
-        this.createUsers();
+        this.users = new HashMap<>();
+        this.cours = new HashMap<>();
     }
-
+    /**
+     *
+     * @return La liste complète des cours de l'objet EduLearn
+     */
     @Override
-    public Map<String, Personne> getUsers() {
-        return users;
+    public Map<Integer, Cours> obtenirTousLesCours() {
+        return this.cours;
     }
 
-    private void createUsers() {
-        Personne pers1 = new Enseignant("Matis", "Dup", "53636376336363636");
-        users = new HashMap<>();
-        users.put(pers1.getNom(), pers1);
+    /**
+     *
+     * @return La liste complète des utilisateurs de l'objet EduLearn
+     */
+    @Override
+    public Map<String, Personne> obtenirTousLesUtilisateurs() {
+        return this.users;
     }
 
+    /**
+     * Vérifie que l'utilisateur correspond bien au username et password
+     * @param username
+     * @param pwd
+     * @return l'objet personne authentifié
+     */
     @Override
     public Personne authentification(String username, String pwd) {
         Personne personne = this.users.get(username);
@@ -36,17 +50,18 @@ public class EduLearn implements IEduLearn {
     // essai de faire "un constructeur" avec un identifiant unique
 
     @Override
-    public boolean creerCours(String nom, Matiere matière, String commentaire, Enseignant proprietaire){
-        Cours cours = new Cours(nom,matière,commentaire,proprietaire);
+    public boolean creerCours(String nom, Matiere matiere, String commentaire, Enseignant proprietaire) {
+        Cours cours = new Cours(nom, matiere, commentaire, proprietaire);
         int numero = cours.getNumeroUnique();
         cours.setId(numero);
 
-
-        List<Apprenant> apprenants = new ArrayList<>();
-        cours.setListeApprenants(apprenants);
+        List<Personne> apprenants = new ArrayList<>();
+        cours.setListePersonne(apprenants);
 
         List<String> fichiers = new ArrayList<>();
         cours.setListeFichiersAccessibles(fichiers);
+
+        this.cours.put(numero, cours);
         return true;
     }
 
